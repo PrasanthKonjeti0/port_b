@@ -43,7 +43,13 @@ public class SecurityConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5173")); // React dev server
+
+        // ✅ Allow both local React dev and deployed Vercel frontend
+        config.setAllowedOrigins(Arrays.asList(
+            "http://localhost:5173",          // Local development
+            "https://port-f-brown.vercel.app" // Vercel deployed frontend
+        ));
+
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 

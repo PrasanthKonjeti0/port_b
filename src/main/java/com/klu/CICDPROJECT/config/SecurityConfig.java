@@ -47,7 +47,7 @@ public class SecurityConfig {
         // ✅ Allow both local React dev and deployed Vercel frontend
         config.setAllowedOrigins(Arrays.asList(
             "http://localhost:5173",          // Local development
-            "https://port-f-brown.vercel.app" // Vercel deployed frontend
+            "https://2300031235-prasanth.vercel.app" // Vercel deployed frontend
         ));
 
         config.setAllowedHeaders(Arrays.asList("*"));

@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/portfolio")
-@CrossOrigin(origins = "http://localhost:5173") // frontend origin
+@CrossOrigin(origins = "https://port-f-brown.vercel.app/") // frontend origin
 public class PortfolioController {
 
     @Autowired

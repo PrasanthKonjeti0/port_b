@@ -7,8 +7,6 @@ import com.klu.CICDPROJECT.repository.PortfolioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class PortfolioService {
 
@@ -37,7 +35,15 @@ public class PortfolioService {
         dto.setSkills(portfolio.getSkills());
         dto.setProjects(portfolio.getProjects());
         dto.setSocialLinks(portfolio.getSocialLinks());
-        dto.setImageUrl(portfolio.getImageUrl());
+
+        // ✅ Always return full URL for image
+        String baseUrl = "https://portb-production.up.railway.app"; // change if deployed elsewhere
+        if (portfolio.getImageUrl() != null && !portfolio.getImageUrl().startsWith("http")) {
+            dto.setImageUrl(baseUrl + portfolio.getImageUrl());
+        } else {
+            dto.setImageUrl(portfolio.getImageUrl());
+        }
+
         return dto;
     }
 }
